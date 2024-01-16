@@ -1,7 +1,5 @@
 <x-layout>
 
-    @include('partials._search')
-
     <a href="/companies/create">
         <button class="ml-5 mb-5 bg-green-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow
         hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 mt-4" type="button">
@@ -16,12 +14,14 @@
             @foreach($companies as $company)
                 <x-company-card :company="$company" />
             @endforeach
-
-        @else
-            <p>No companies found</p>
-        @endunless
-
     </div>
+    @else
+    <div class="uppercase font-bold text-5xl text-left">
+        <h1>No companies found</h1>
+    </div>
+    @endunless
+
+
 
     <div class="mt-6 p-4">
         {{$companies->links()}}
