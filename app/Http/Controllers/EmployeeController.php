@@ -26,6 +26,7 @@ class EmployeeController extends Controller
             'last_name' => 'required',
             'email' => 'email',
             'phone' => 'nullable',
+            'company_id' => 'required'
         ]);
 
         Employee::create($formFields);
@@ -50,5 +51,11 @@ class EmployeeController extends Controller
         $employee->update($formFields);
 
         return back();
+    }
+
+    // Delete Item
+    public function destroy(Employee $employee) {
+        $employee->delete();
+        return redirect('/employees');
     }
 }

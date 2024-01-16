@@ -13,6 +13,6 @@ class Company extends Model
 
     // Relationship to Employees
     public function employee() {
-        return $this->hasMany(Employee::class, 'company');
+        return $this->hasMany(Employee::class, 'company_id');
     }
 }

@@ -26,6 +26,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'email' => 'email',
             'website' => 'nullable',
+            'logo' => 'nullable|dimensions:min_width=100,min_height=100'
         ]);
 
         if($request->hasFile('logo')) {
@@ -48,6 +49,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'email' => 'email',
             'website' => 'nullable',
+            'logo' => 'nullable|dimensions:min_width=100,min_height=100'
         ]);
 
         if($request->hasFile('logo')) {

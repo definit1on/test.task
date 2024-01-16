@@ -13,6 +13,6 @@ class Employee extends Model
 
     // Relationship to Company
     public function company() {
-        return $this->belongsTo(Company::class, 'company');
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

@@ -18,7 +18,7 @@
             @endforeach
 
         @else
-            <p>No companies found</p>
+            <p>No employees found</p>
         @endunless
 
     </div>

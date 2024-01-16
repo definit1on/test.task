@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 
 // Show Index Page
 Route::get('/', function() {
@@ -13,37 +14,46 @@ Route::get('/', function() {
 });
 
 // Show List Of Companies
-Route::get('/companies', [CompanyController::class, 'index']);
+Route::get('/companies', [CompanyController::class, 'index'])->middleware('auth');
 
 // Show Create Form (Company)
-Route::get('/companies/create', [CompanyController::class, 'create']);
+Route::get('/companies/create', [CompanyController::class, 'create'])->middleware('auth');
 
 // Store Form Data (Company)
-Route::post('/companies/store', [CompanyController::class, 'store']);
+Route::post('/companies/store', [CompanyController::class, 'store'])->middleware('auth');
 
 // Show Edit Form (Company)
-Route::get('/companies/{company}/edit', [CompanyController::class, 'edit']);
+Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])->middleware('auth');
 
 // Submit Update Form
-Route::put('/companies/{company}', [CompanyController::class, 'update']);
+Route::put('/companies/{company}', [CompanyController::class, 'update'])->middleware('auth');
 
 // Delete Item In Companies
-Route::delete('/companies/{company}', [CompanyController::class, 'destroy']);
+Route::delete('/companies/{company}', [CompanyController::class, 'destroy'])->middleware('auth');
 
 // Show List Of Employees
-Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index'])->middleware('auth');
 
 // Show Create Form (Employee)
-Route::get('/employees/create', [EmployeeController::class, 'create']);
+Route::get('/employees/create', [EmployeeController::class, 'create'])->middleware('auth');
 
 // Store Form Data (Employee)
-Route::post('/employees/store', [EmployeeController::class, 'store']);
+Route::post('/employees/store', [EmployeeController::class, 'store'])->middleware('auth');
 
 // Show Edit Form (Employee)
-Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->middleware('auth');
 
 // Submit Update Form
-Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
+Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->middleware('auth');
 
 // Delete Item In Employees
-Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy']);
+Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->middleware('auth');
+
+// Log User Out
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+// Show Login Form
+Route::get('/login', [UserController::class, 'login'])->name('login');
+
+// Log User In
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

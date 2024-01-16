@@ -29,11 +29,11 @@ class DatabaseSeeder extends Seeder
             'website' => 'www.acme.corp',
         ]);
 
-        Employee::create([
-            'first_name' => 'Herman',
-            'last_name' => 'Karman',
-            'email' => 'herman@acme.corp',
-            'phone' => '380998887766'
-        ]);
+//        Employee::create([
+//            'first_name' => 'Herman',
+//            'last_name' => 'Karman',
+//            'email' => 'herman@acme.corp',
+//            'phone' => '380998887766',
+//        ]);
     }
 }
